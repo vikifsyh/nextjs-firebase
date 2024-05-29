@@ -3,6 +3,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { SignIn } from "@/services/firebase";
 import { GetSignErrorMessage } from "@/services/firebase";
+import { useUser } from "../component/context/user";
 
 export default function Login() {
   const GetErrorMessage = (type) => {
@@ -42,6 +43,7 @@ export default function Login() {
   };
 
   console.log({ errors });
+  const user = useUser();
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">

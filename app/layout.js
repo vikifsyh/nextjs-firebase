@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import AuthStateChangeProvider from "./component/context/auth";
+import { UserProvider } from "./component/context/user";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,8 +14,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <AuthStateChangeProvider />
-        {children}
+        <UserProvider>
+          <AuthStateChangeProvider>{children}</AuthStateChangeProvider>
+        </UserProvider>
       </body>
     </html>
   );
